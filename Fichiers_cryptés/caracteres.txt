@@ -1,0 +1,9 @@
+Liste des caractères (aucun autre caractère n'a été utilisé)
+
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+0123456789
+,.;:-!?'"
+(espace : " ")
+(saut de ligne : "\n")
+(tabulation : "\t")
