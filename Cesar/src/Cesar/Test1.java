@@ -21,12 +21,19 @@ public static void main(String[] args) {
 		}
 		
 		MessageCrypte m1 = new MessageCrypte("bcd");
-		System.out.println(m1.ALPHABET);
+		System.out.println(Message.ALPHABET);
 		System.out.println(MessageCrypte.ALPHABET[72]);
 		System.out.println(-2%26);
 		System.out.println("\n");
 		
 		System.out.println(m1.decrypterSuivantCle(1));
+		
+		Integer a = 100;
+		System.out.println(a/100);
+		
+		String nb = "143";
+		int nbf = Integer.parseInt(nb);
+		System.out.println(nbf);
 		
 	}
 }

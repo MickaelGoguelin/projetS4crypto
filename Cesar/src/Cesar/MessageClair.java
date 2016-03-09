@@ -9,7 +9,7 @@ public class MessageClair extends Message {
 	public String chiffrer(int cle){
 		
 		char[] message = super.getMessage().toCharArray();
-		int i, j, index;
+		int i, j;
 		for (i=0; i<super.getMessage().length(); i++){
 			
 			j = super.inAlphabet(message[i]);
