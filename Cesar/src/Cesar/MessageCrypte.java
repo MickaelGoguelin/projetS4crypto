@@ -12,7 +12,7 @@ public class MessageCrypte extends Message {
 		
 		ArrayList<String> listeDeMessage = new ArrayList<String>();
 		int i;
-		for (i = 1; i<=25; i++){
+		for (i = 1; i<Message.ALPHABET.length; i++){
 			
 			listeDeMessage.add(this.decrypterSuivantCle(i));
 		}
@@ -48,11 +48,30 @@ public class MessageCrypte extends Message {
 	
 	public ArrayList<String> decrypterParPaquetDe2(){
 		
-		String [] message = super.getMessage().split("-");
+		String [] messageCode = super.getMessage().split("-");
+		int [] tabCode = new int[messageCode.length];
+		for (int i = 0; i<messageCode.length; i++) tabCode[i] = Integer.parseInt(messageCode[i]);
+		messageCode=null;
+		for (int i : tabCode){
+			if (i > 7375) System.out.println(i);
+		}
 		ArrayList<String> listeDeMessage = new ArrayList<String>();
-		
-		for (String i : message){
-			System.out.println(i);
+		String message;
+		int max = 7374;
+		int i, pos, pos1, pos2;
+		for (i=1; i<max; i++){
+			message="";
+			for (int m : tabCode){
+				pos = m-i;
+				if (pos < 0) pos += max;
+				else pos=pos%max;
+				pos1 = (pos/100)%Message.ALPHABET.length;
+				pos2 = (pos%100)%Message.ALPHABET.length;
+				//System.out.println(i + " " + pos + " " + pos1 + " " + pos2);
+				
+				message += (""+Message.ALPHABET[pos1] + Message.ALPHABET[pos2]);
+			}
+			listeDeMessage.add(message);
 		}
 		
 		return listeDeMessage;

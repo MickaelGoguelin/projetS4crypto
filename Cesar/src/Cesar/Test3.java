@@ -11,6 +11,8 @@ public class Test3 {
 		MessageCrypte m3 = new MessageCrypte(m2.chiffrer(6));
 		
 		System.out.println(m3.decrypterSuivantCle(6));
+		
+		System.out.println(Message.ALPHABET.length);
 	}
 
 }

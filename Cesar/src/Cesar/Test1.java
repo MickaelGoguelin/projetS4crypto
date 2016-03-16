@@ -23,7 +23,8 @@ public static void main(String[] args) {
 		MessageCrypte m1 = new MessageCrypte("bcd");
 		System.out.println(Message.ALPHABET);
 		System.out.println(MessageCrypte.ALPHABET[72]);
-		System.out.println(-2%26);
+		System.out.println((-2)%26);
+		System.out.println(2%26);
 		System.out.println("\n");
 		
 		System.out.println(m1.decrypterSuivantCle(1));

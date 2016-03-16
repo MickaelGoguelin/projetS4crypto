@@ -15,8 +15,14 @@ public class Test4 {
 			
 			if (scan.hasNextLine()){
 				line = scan.nextLine();
+				System.out.println(line);
 				MessageCrypte m1 = new MessageCrypte(line);
 				ArrayList<String> test = m1.decrypterParPaquetDe2();
+				
+				for (String m : test){
+					System.out.println(m);
+					System.out.println("---------------------------------------------------------------");
+				}
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
