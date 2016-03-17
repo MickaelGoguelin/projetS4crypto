@@ -46,19 +46,25 @@ public class MessageCrypte extends Message {
 	 * 		+ ajouter dans une variable String message la lettre correspondante au nombre suivant l'alphabet
 	 */
 	
-	public ArrayList<String> decrypterParPaquetDe2(){
+	public ArrayList<String> decrypterParPaquets(int n){
 		
 		String [] messageCode = super.getMessage().split("-");
 		int [] tabCode = new int[messageCode.length];
 		for (int i = 0; i<messageCode.length; i++) tabCode[i] = Integer.parseInt(messageCode[i]);
 		messageCode=null;
-		for (int i : tabCode){
-			if (i > 7375) System.out.println(i);
-		}
+		/*for (int i : tabCode){
+			if (i > 7374) System.out.println(i);
+		}*/
 		ArrayList<String> listeDeMessage = new ArrayList<String>();
 		String message;
-		int max = 7374;
-		int i, pos, pos1, pos2;
+		long max = Message.ALPHABET.length;
+		int p = 2;
+		for (int i=1; i<n; i++){
+			max += 73 * Math.pow(10, p);
+			p+=2;
+		}
+		System.out.println(max);
+		/*int i, pos, pos1, pos2;
 		for (i=1; i<max; i++){
 			message="";
 			for (int m : tabCode){
@@ -72,7 +78,7 @@ public class MessageCrypte extends Message {
 				message += (""+Message.ALPHABET[pos1] + Message.ALPHABET[pos2]);
 			}
 			listeDeMessage.add(message);
-		}
+		}*/
 		
 		return listeDeMessage;
 	}
