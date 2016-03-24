@@ -1,0 +1,7 @@
+arbre
+canon
+bouclier
+éléphant
+arme
+zèbre
+bouteille
