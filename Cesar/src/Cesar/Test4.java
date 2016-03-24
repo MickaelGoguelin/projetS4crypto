@@ -2,6 +2,8 @@ package Cesar;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,15 +19,26 @@ public class Test4 {
 				line = scan.nextLine();
 				System.out.println(line);
 				MessageCrypte m1 = new MessageCrypte(line);
-				ArrayList<String> test = m1.decrypterParPaquets(8);
+				ArrayList<String> test = m1.decrypterParPaquets(2);
+				
+				File f = new File("test.txt");
+				
+				FileWriter fw = new FileWriter(f);
 				
 				for (String m : test){
-					System.out.println(m);
-					System.out.println("---------------------------------------------------------------");
+					/*System.out.println(m);
+					System.out.println("---------------------------------------------------------------");*/
+					fw.write(m);
+					fw.write("\r\n");
+					fw.write("---------------------------------------------------------------");
+					fw.write("\r\n");
 				}
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
+		}
+		catch (IOException e){
+			System.out.println("Erreur lors de la lecture : " + e.getMessage());
 		}
 	}
 }

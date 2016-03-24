@@ -52,33 +52,32 @@ public class MessageCrypte extends Message {
 		int [] tabCode = new int[messageCode.length];
 		for (int i = 0; i<messageCode.length; i++) tabCode[i] = Integer.parseInt(messageCode[i]);
 		messageCode=null;
-		/*for (int i : tabCode){
-			if (i > 7374) System.out.println(i);
-		}*/
 		ArrayList<String> listeDeMessage = new ArrayList<String>();
 		String message;
 		long max = Message.ALPHABET.length;
 		int p = 2;
 		for (int i=1; i<n; i++){
-			max += 73 * Math.pow(10, p);
+			max += (Message.ALPHABET.length-1) * Math.pow(10, p);
 			p+=2;
 		}
-		System.out.println(max);
-		/*int i, pos, pos1, pos2;
+		long i,pos;
 		for (i=1; i<max; i++){
 			message="";
 			for (int m : tabCode){
+				ArrayList<Integer> positions = new ArrayList<Integer>();
 				pos = m-i;
 				if (pos < 0) pos += max;
 				else pos=pos%max;
-				pos1 = (pos/100)%Message.ALPHABET.length;
-				pos2 = (pos%100)%Message.ALPHABET.length;
-				//System.out.println(i + " " + pos + " " + pos1 + " " + pos2);
-				
-				message += (""+Message.ALPHABET[pos1] + Message.ALPHABET[pos2]);
+				for(int k=1 ; k<=n; k++){
+					positions.add((int)(pos%100)%Message.ALPHABET.length);
+					pos/=100;
+				}
+				for(int j=positions.size()-1; j>=0; j--){
+					message += (""+Message.ALPHABET[positions.get(j)]);
+				}
 			}
 			listeDeMessage.add(message);
-		}*/
+		}
 		
 		return listeDeMessage;
 	}
